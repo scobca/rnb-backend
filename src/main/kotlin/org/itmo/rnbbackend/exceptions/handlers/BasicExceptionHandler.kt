@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice
 @RestControllerAdvice
 class BasicExceptionHandler {
     @ExceptionHandler
-    fun handlerNotFoundException(e: UnauthorizedException): ResponseEntity<ErrorMessage?> {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
+    fun handlerUnauthorizedException(e: UnauthorizedException): ResponseEntity<ErrorMessage?> {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(
             ErrorMessage(
                 statusCode = HttpStatus.UNAUTHORIZED.value(),
                 errorName = e.javaClass.simpleName,
