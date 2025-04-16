@@ -32,9 +32,10 @@ extra["springModulithVersion"] = "1.3.4"
 
 dependencies {
     // Spring
-    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
@@ -45,13 +46,22 @@ dependencies {
 
     // Database
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.modulith:spring-modulith-starter-jpa")
+    implementation("org.postgresql:postgresql:42.7.2")
     runtimeOnly("org.postgresql:postgresql")
 
     // Kotlin coroutines
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
+
+    // Kotlinx serialization
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
+
+    // JWT Auth
+    implementation("io.jsonwebtoken:jjwt:0.12.6")
+    implementation("javax.xml.bind:jaxb-api:2.3.0")
 
     // Tests
     testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -60,7 +70,6 @@ dependencies {
     testImplementation("org.springframework.security:spring-security-test")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
 }
 
 dependencyManagement {
@@ -91,4 +100,4 @@ conventionalCommits {
     scopes = emptyList()
     successMessage = "Сообщение коммита соответствует стандартам Conventional Commit."
     failureMessage = "Сообщение коммита не соответствует стандартам Conventional Commit."
-}
+ }
