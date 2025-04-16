@@ -14,7 +14,7 @@ class BasicExceptionHandler {
     fun handlerNotFoundException(e: UnauthorizedException): ResponseEntity<ErrorMessage?> {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(
             ErrorMessage(
-                statusCode = HttpStatus.BAD_REQUEST.value(),
+                statusCode = HttpStatus.UNAUTHORIZED.value(),
                 errorName = e.javaClass.simpleName,
                 message = e.message ?: "Message not provided"
             )
