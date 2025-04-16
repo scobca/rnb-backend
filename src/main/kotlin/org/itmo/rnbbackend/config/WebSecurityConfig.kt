@@ -16,7 +16,7 @@ class WebSecurityConfig(private val jwtFilter: JwtRequestFilter) {
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http
             .authorizeHttpRequests { auth ->
-                auth.requestMatchers("api/v1/auth/**").permitAll()
+                auth.requestMatchers("/api/v1/auth/**").permitAll()
                 auth.anyRequest().authenticated()
             }
             .csrf { csrf -> csrf.disable() }

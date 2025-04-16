@@ -24,6 +24,6 @@ class UserEntity {
     var password: String = ""
 
     override fun toString(): String {
-        return "UserEntity(id=$id, username='$username', email='$email', password='$password')"
+        return "UserEntity(id=$id, username='$username', email='$email')"
     }
 }
